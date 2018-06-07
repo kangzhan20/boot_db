@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://192.168.1.144:3306/boot_test?characterEncoding=utf8&useSSL=true
+    username: root
+    password: qzmpqzmpQQ12311
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
