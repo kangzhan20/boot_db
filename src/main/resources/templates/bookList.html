@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书架</title>
+</head>
+<body>
+<div th:unless="${#lists.isEmpty(bookList)}">
+    <dl th:each="book:${bookList}">
+        <dt>
+            <span th:text="${book.title}" >Title</span> By
+            <span th:text="${book.author}">Author</span>
+            (ISBN<span th:text="${book.isbn}">ISBN</span>)
+        </dt>
+        <dd class="bookDescription">
+            <span th:if="${book.description}" th:text="${book.description}">Description</span>
+            <span th:if="${book.description eq null}">No description available</span>
+        </dd>
+    </dl>
+</div>
+</body>
+</html>
