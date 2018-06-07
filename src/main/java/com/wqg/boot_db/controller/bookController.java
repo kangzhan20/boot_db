@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/book")
+@RequestMapping(value = "book")
 public class bookController {
 
     @Autowired
@@ -22,7 +22,7 @@ public class bookController {
      * @param model
      * @return
      */
-    @RequestMapping(value="/readAll",method = RequestMethod.GET)
+    @GetMapping("/readAll")
     public String readAll(Model model){
         List<Book> list=bookRepository.findAll();
         model.addAttribute("bookList",list);
