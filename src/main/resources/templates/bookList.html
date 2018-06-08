@@ -16,7 +16,24 @@
             <span th:if="${book.description}" th:text="${book.description}">Description</span>
             <span th:if="${book.description eq null}">No description available</span>
         </dd>
+        <dd>
+            <a th:href="'/book/read?id='+${book.id}">查看详情</a>
+        </dd>
     </dl>
+</div>
+<div>
+    <h2>新增书籍</h2>
+    <form th:method="post" th:action="@{/book/read}" method="post" th:object="${updateBook}">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" />
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author"/>
+        <label for="isbn">ISBN:</label>
+        <input type="text" name="isbn" id="isbn" />
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" />
+        <input type="submit" />
+    </form>
 </div>
 </body>
 </html>

@@ -43,31 +43,14 @@ public class bookController {
 
     /**
      * 创建或者更新信息
-     * @param id
-     * @param author
-     * @param isbn
-     * @param title
-     * @param description
+     * @param updateBook
      * @return
      */
     @PostMapping("/read")
-    public String read(@RequestParam("id")Long id,@RequestParam("author")String author,
-                       @RequestParam("isbn")String isbn,@RequestParam("title")String title,
-                       @RequestParam("description")String description){
-        Object obj=bookRepository.findById(id);
-        if(obj==null){
-            Book book=new Book();
-            book.setAuthor(author);
-            book.setDescription(description);
-            book.setIsbn(isbn);
-            book.setTitle(title);
-            bookRepository.save(book);
-        }else{
-            bookRepository.updateBook(id,author,isbn,title,description);
-        }
-
+    public String read(@ModelAttribute("updateBook")Book updateBook){
+        bookRepository.save(updateBook);
         //重定向到 书列表 页面。
-        return "redirect:/readAll";
+        return "redirect:/book/readAll";
     }
 
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>书</title>
+</head>
+<body>
+<div>
+    <h2>新增书籍</h2>
+    <form th:method="post" th:action="@{/book/read}" method="post" th:object="${book}" >
+        <label for="title">Title:</label>
+        <input type="hidden" id="id" name="id" th:value="${book.get().getId()}" />
+        <input type="text" name="title" id="title" th:value="${book.get().title}" />
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" th:value="${book.get().author}" />
+        <label for="isbn">ISBN:</label>
+        <input type="text" name="isbn" id="isbn" th:value="${book.get().isbn}"/>
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description" th:value="${book.get().description}" />
+        <input type="submit" />
+    </form>
+</div>
+</body>
+</html>

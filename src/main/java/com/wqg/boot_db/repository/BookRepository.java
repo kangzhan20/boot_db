@@ -4,6 +4,7 @@ import com.wqg.boot_db.pojo.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 public interface BookRepository extends JpaRepository<Book,Long> {
 
@@ -15,7 +16,9 @@ public interface BookRepository extends JpaRepository<Book,Long> {
      * @param title
      * @param description
      */
-    @Query(value ="update Book set author=?2 ,isbn=?3,title=?4,description=?5 where id=?1", nativeQuery = true)
+    @Query(value ="update Book set author=:author ,isbn=:isbn," +
+            "title=:title,description=:description where id=:id", nativeQuery = true)
     @Modifying
-    void updateBook(long id,String author,String isbn,String title,String description);
+    void updateBook(@Param("id") long id,@Param("author") String author,
+                    @Param("isbn")String isbn,@Param("title") String title,@Param("description") String description);
 }

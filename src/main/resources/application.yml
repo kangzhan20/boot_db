@@ -4,6 +4,11 @@ spring:
     url: jdbc:mysql://192.168.1.144:3306/boot_test?characterEncoding=utf8&useSSL=true
     username: root
     password: qzmpqzmpQQ12311
+  thymeleaf:
+    cache: false
+    cache-period: 0
+  template:
+    cache: false
   jpa:
     hibernate:
       ddl-auto: none
